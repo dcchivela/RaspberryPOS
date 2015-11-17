@@ -1,6 +1,0 @@
-/home/pi/lemonpos/build/src/CMakeFiles/lemon.dir
-/home/pi/lemonpos/build/src/CMakeFiles/lemon_automoc.dir
-/home/pi/lemonpos/build/squeeze/src/CMakeFiles/squeeze.dir
-/home/pi/lemonpos/build/squeeze/src/CMakeFiles/squeeze_automoc.dir
-/home/pi/lemonpos/build/squeeze/src/CMakeFiles/translations.dir
-/home/pi/lemonpos/build/CMakeFiles/uninstall.dir
