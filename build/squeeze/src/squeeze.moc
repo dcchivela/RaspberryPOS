@@ -1,0 +1,121 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'squeeze.h'
+**
+** Created: Mon Apr 20 14:08:40 2015
+**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include "../../../squeeze/src/squeeze.h"
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'squeeze.h' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.2. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_squeeze[] = {
+
+ // content:
+       6,       // revision
+       0,       // classname
+       0,    0, // classinfo
+      12,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+ // slots: signature, parameters, type, tag, flags
+       8,   29,   29,   29, 0x08,
+      30,   53,   29,   29, 0x08,
+      58,   53,   29,   29, 0x08,
+      83,  103,   29,   29, 0x08,
+     107,   29,   29,   29, 0x08,
+     122,   29,   29,   29, 0x08,
+     140,   29,   29,   29, 0x08,
+     151,   29,   29,   29, 0x08,
+     163,   29,   29,   29, 0x08,
+     171,   29,   29,   29, 0x08,
+     183,   29,   29,   29, 0x08,
+     204,   29,   29,   29, 0x08,
+
+       0        // eod
+};
+
+static const char qt_meta_stringdata_squeeze[] = {
+    "squeeze\0optionsPreferences()\0\0"
+    "changeCaption(QString)\0text\0"
+    "changeStatusbar(QString)\0setConnection(bool)\0"
+    "yes\0setConnected()\0setDisconnected()\0"
+    "enableUI()\0disableUI()\0salir()\0"
+    "loadStyle()\0showDBConfigDialog()\0"
+    "fixGeom()\0"
+};
+
+void squeeze::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        squeeze *_t = static_cast<squeeze *>(_o);
+        switch (_id) {
+        case 0: _t->optionsPreferences(); break;
+        case 1: _t->changeCaption((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 2: _t->changeStatusbar((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 3: _t->setConnection((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 4: _t->setConnected(); break;
+        case 5: _t->setDisconnected(); break;
+        case 6: _t->enableUI(); break;
+        case 7: _t->disableUI(); break;
+        case 8: _t->salir(); break;
+        case 9: _t->loadStyle(); break;
+        case 10: _t->showDBConfigDialog(); break;
+        case 11: _t->fixGeom(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData squeeze::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
+const QMetaObject squeeze::staticMetaObject = {
+    { &KXmlGuiWindow::staticMetaObject, qt_meta_stringdata_squeeze,
+      qt_meta_data_squeeze, &staticMetaObjectExtraData }
+};
+
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &squeeze::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
+const QMetaObject *squeeze::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+}
+
+void *squeeze::qt_metacast(const char *_clname)
+{
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_squeeze))
+        return static_cast<void*>(const_cast< squeeze*>(this));
+    return KXmlGuiWindow::qt_metacast(_clname);
+}
+
+int squeeze::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = KXmlGuiWindow::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 12)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 12;
+    }
+    return _id;
+}
+QT_END_MOC_NAMESPACE

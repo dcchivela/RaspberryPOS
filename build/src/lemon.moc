@@ -1,0 +1,153 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'lemon.h'
+**
+** Created: Mon Apr 20 14:00:00 2015
+**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include "../../src/lemon.h"
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'lemon.h' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.2. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_lemon[] = {
+
+ // content:
+       6,       // revision
+       0,       // classname
+       0,    0, // classinfo
+      25,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+ // slots: signature, parameters, type, tag, flags
+       6,   27,   27,   27, 0x08,
+      28,   53,   27,   27, 0x08,
+      58,   53,   27,   27, 0x08,
+      81,   27,   27,   27, 0x08,
+      93,   27,   27,   27, 0x08,
+     108,   27,   27,   27, 0x08,
+     119,   27,   27,   27, 0x08,
+     133,   27,   27,   27, 0x08,
+     149,   27,   27,   27, 0x08,
+     164,  198,   27,   27, 0x08,
+     203,   27,   27,   27, 0x08,
+     217,   27,   27,   27, 0x08,
+     234,   27,   27,   27, 0x08,
+     247,   27,   27,   27, 0x08,
+     267,   27,   27,   27, 0x08,
+     281,   27,   27,   27, 0x08,
+     289,   27,   27,   27, 0x08,
+     304,   27,   27,   27, 0x08,
+     319,   27,   27,   27, 0x08,
+     334,   27,   27,   27, 0x08,
+     353,   27,   27,   27, 0x08,
+     365,   27,   27,   27, 0x08,
+     385,   27,   27,   27, 0x08,
+     406,   27,   27,   27, 0x08,
+     422,   27,   27,   27, 0x08,
+
+       0        // eod
+};
+
+static const char qt_meta_stringdata_lemon[] = {
+    "lemon\0optionsPreferences()\0\0"
+    "changeStatusbar(QString)\0text\0"
+    "changeCaption(QString)\0disableUi()\0"
+    "disableLogin()\0enableUi()\0enableLogin()\0"
+    "disableConfig()\0enableConfig()\0"
+    "sLitemActivated(QListWidgetItem*)\0"
+    "item\0updateClock()\0updateUserName()\0"
+    "updateDate()\0updateTransaction()\0"
+    "hideMenuBar()\0salir()\0hideToolBars()\0"
+    "showToolBars()\0reactOnLogOn()\0"
+    "reactOnStartedOp()\0loadStyle()\0"
+    "triggerGridAction()\0showDBConfigDialog()\0"
+    "enableStartOp()\0disableStartOp()\0"
+};
+
+void lemon::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        lemon *_t = static_cast<lemon *>(_o);
+        switch (_id) {
+        case 0: _t->optionsPreferences(); break;
+        case 1: _t->changeStatusbar((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 2: _t->changeCaption((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 3: _t->disableUi(); break;
+        case 4: _t->disableLogin(); break;
+        case 5: _t->enableUi(); break;
+        case 6: _t->enableLogin(); break;
+        case 7: _t->disableConfig(); break;
+        case 8: _t->enableConfig(); break;
+        case 9: _t->sLitemActivated((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 10: _t->updateClock(); break;
+        case 11: _t->updateUserName(); break;
+        case 12: _t->updateDate(); break;
+        case 13: _t->updateTransaction(); break;
+        case 14: _t->hideMenuBar(); break;
+        case 15: _t->salir(); break;
+        case 16: _t->hideToolBars(); break;
+        case 17: _t->showToolBars(); break;
+        case 18: _t->reactOnLogOn(); break;
+        case 19: _t->reactOnStartedOp(); break;
+        case 20: _t->loadStyle(); break;
+        case 21: _t->triggerGridAction(); break;
+        case 22: _t->showDBConfigDialog(); break;
+        case 23: _t->enableStartOp(); break;
+        case 24: _t->disableStartOp(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData lemon::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
+const QMetaObject lemon::staticMetaObject = {
+    { &KXmlGuiWindow::staticMetaObject, qt_meta_stringdata_lemon,
+      qt_meta_data_lemon, &staticMetaObjectExtraData }
+};
+
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &lemon::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
+const QMetaObject *lemon::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+}
+
+void *lemon::qt_metacast(const char *_clname)
+{
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_lemon))
+        return static_cast<void*>(const_cast< lemon*>(this));
+    return KXmlGuiWindow::qt_metacast(_clname);
+}
+
+int lemon::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = KXmlGuiWindow::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 25)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 25;
+    }
+    return _id;
+}
+QT_END_MOC_NAMESPACE

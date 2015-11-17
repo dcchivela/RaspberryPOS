@@ -1,0 +1,86 @@
+
+With mysql Im using (with qt) a function that retrieves the last inserted id (returning the primary key value that has been autocreated [auto_increment]) for a table. The qt documentation says that for this to work in postgresql the OIDS must be enabled in the table.
+I have read the postgresql documentation and im a bit confused, what value returns (if the primary key value or another value)? Also, the doc says that the OIDS are 4 bytes long and that may not be really unique values.
+
+Is it possbile to use psql with different username?:
+  My linux username is 'miguel' and the postgresql user is 'lemonuser'. There is no 'lemonuser' on the linux system.
+  When trying to login into psql ( psql -U lemonuser -W the_password ), the authentication fails.
+  I tried with pgAdminIII (with the lemonuser) and it went fine. 
+  I wanted to use psql because i want to run a script with psql -i file ( lemon.sql ) to create many tables,
+  as used with "cat file.sql | mysql -u root -p"...
+
+
+I have a problem creating this view:
+
+CREATE OR REPLACE VIEW v_groupedSO AS
+SELECT * FROM special_orders
+group by saleid;
+
+If i remove the "group by saleid", the view is created (no errors).
+
+This is the table:
+
+CREATE TABLE special_orders (
+  orderid BIGSERIAL UNIQUE,
+  name varchar(512) NOT NULL default 'unknown',
+  groupElements varchar(1000) default '',
+  qty numeric NOT NULL default 1,
+  price numeric   NOT NULL default '0.0',
+  cost numeric   NOT NULL default '0',
+  units smallint    NOT NULL default '0',
+  status smallint default 0,
+  saleid bigint   NOT NULL default 1,
+  notes varchar(800)  default '',
+  payment numeric   NOT NULL default '0',
+  completePayment BOOLEAN default false,
+  dateTime timestamp NOT NULL default NOW(),
+  deliveryDateTime timestamp NOT NULL default NOW(),
+  clientId bigint   NOT NULL default 1,
+  userId bigint   NOT NULL default 1,
+  PRIMARY KEY  (orderid)
+) WITH OIDS;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DROP TABLE IF EXISTS "transactions";
+DROP SEQUENCE transactions_id_seq;
+
+CREATE TABLE transactions (
+  id BIGSERIAL UNIQUE,
+  clientid bigint  NOT NULL REFERENCES clients,
+  type smallint  default NULL REFERENCES transactiontypes,
+  amount numeric  NOT NULL default '0',
+  date date NOT NULL default NOW(),
+  time time NOT NULL default '00:00',
+  paidwith numeric  NOT NULL default '0.0',
+  changegiven numeric  NOT NULL default '0.0',
+  paymethod smallint NOT NULL default '0' REFERENCES paytypes,
+  state smallint NOT NULL default '0' REFERENCES transactiontates,
+  userid bigint NOT NULL default '0' REFERENCES users,
+  cardnumber varchar(20) character set utf8 collate utf8_general_ci,
+  itemcount integer  NOT NULL default '0',
+  itemslist varchar(1000) character set utf8 collate utf8_general_ci NOT NULL,
+  points bigint  NOT NULL default '0',
+  discmoney numeric NOT NULL default '0',
+  disc numeric NOT NULL default '0',
+  cardauthnumber varchar(50) character set utf8 collate utf8_general_ci NOT NULL,
+  utility numeric NOT NULL default '0',
+  terminalnum integer   NOT NULL default '1',
+  providerid bigint   NOT NULL default 1 REFERENCES providers, --for Purchase orders
+  specialOrders varchar(1000) collate utf8_general_ci default '',
+  balanceId bigint  NOT NULL default '1' REFERENCES balances, --note: if balance is not yet created the reference is valid?
+  totalTax numeric NOT NULL default '0',
+  PRIMARY KEY (id),
+  KEY  SEC (clientid, type, date, time, state)
+) ;

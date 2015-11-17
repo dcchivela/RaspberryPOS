@@ -1,0 +1,261 @@
+TAXES Y PRECIOS:
+
+  Tipo E.U. (Tax NO incluido en precio):
+    El precio indicado en la base de datos es el precio sin impuestos.
+    Agregar tax de cada producto al total de la compra.
+    Desglosar el tax [*OPCIONAL*]
+    Al calcular tax ($) desde precio, es simple precio*(taxTotal/100)
+
+  Tipo MEXICO (Tax incluido en precios):
+    El precio indicado en la base de datos es el precio con impuestos.
+    NO agregar tax de cada producto al total de la compra. Solo calcularlo para informacion.
+    Al calcular el tax ($) desde el precio, hay que hacer sacar el porcentaje que ya esta incluido en el precio.
+      pWOtax= info.price/(1+((info.tax+info.extratax)/100));
+      double tax1m = (info.tax/100)*pWOtax; double tax2m = (info.extratax/100)*pWOtax;
+    Desglosar el tax en el ticket [*OPCIONAL*]
+
+
+
+
+
+
+PROBAR Con ambas configuraciones:
+
+ Purchases (incl calcular precio por paquete.)                          PARECE ESTAR BIEN EN AMBOS FORMATOS.
+ Lemon Venta -checar impuestos si estan calculados bien
+
+
+ CHECAR:
+
+  Que se sincronice bien la config, especialmente el taxIsIncludedInPrice.. porque en el settings esta AL REVES!!!!!!!!!!!
+
+
+
+
+
+
+
+
+void ProductEditor::itemDoubleClicked(QTableWidgetItem* item)
+{
+  int row = item->row();
+  QTableWidgetItem *itm = ui->groupView->item(row, 1);
+  QString name = itm->data(Qt::DisplayRole).toString();
+  Azahar *myDb = new Azahar;
+  myDb->setDatabase(db);
+  //get code from db
+  qulonglong code = myDb->getProductCode(name);
+  ProductInfo pInfo = groupInfo.productsList.take(code); //insert it later...
+  double qty = pInfo.qtyOnList+1; //from hash | must be the same on groupView
+  qDebug()<<"qty on list, including new one:"<<qty;
+  
+  //modify pInfo
+  pInfo.qtyOnList = qty; //increment it one by one
+  //reinsert it to the hash
+  groupInfo.productsList.insert(code, pInfo);
+  //modify groupView
+  itm = ui->groupView->item(row, 0);
+  itm->setData(Qt::EditRole, QVariant(qty));
+  // update info of the group
+  groupInfo.count += 1;
+  groupInfo.cost  += pInfo.cost;
+  groupInfo.price += pInfo.price;
+  groupInfo.taxMoney += pInfo.totaltax*(qty) - pInfo.totaltax*(qty-1);
+  bool yes = false;
+  if (pInfo.stockqty > 0 ) //TODO:Falta checar la cantidad que se desea en elgrupo de cada producto
+    yes = true;
+  groupInfo.isAvailable = (groupInfo.isAvailable && yes );
+  
+  //update cost and price on the form
+  ui->editCost->setText(QString::number(groupInfo.cost));
+  ui->editFinalPrice->setText(QString::number(groupInfo.price));
+  ui->editExtraTaxes->setText("0.0");
+  
+  //calculate compound tax for the group.
+  groupInfo.tax = 0;
+  foreach(ProductInfo info, groupInfo.productsList) {
+    groupInfo.tax += (info.totaltax*qty/groupInfo.price)*100; // totalTaxMoney = price*(taxPercentage/100)
+    qDebug()<<" <Incrementing products> qtyOnList:"<<info.qtyOnList<<" tax money for product: "<<info.totaltax<<" group price:"<<groupInfo.price<<" taxMoney for group:"<<groupInfo.taxMoney<<" tax % for group:"<< groupInfo.tax;
+  }
+  ui->editTax->setText(QString::number(groupInfo.tax));
+  
+  //qDebug()<<"There are "<<groupInfo.count<<" items in group. The cost is:"<<groupInfo.cost<<", The price is:"<<groupInfo.price<<" And is available="<<groupInfo.isAvailable;
+  delete myDb;
+}
+
+
+void ProductEditor::addItem()
+{
+  Azahar *myDb = new Azahar;
+  myDb->setDatabase(db);
+  
+  //get selected items from source view
+  QItemSelectionModel *selectionModel = ui->sourcePView->selectionModel();
+  QModelIndexList indexList = selectionModel->selectedRows(); // pasar el indice que quiera (0=code, 1=name)
+  foreach(QModelIndex index, indexList) {
+    qulonglong code = index.data().toULongLong();
+    
+    bool exists = false;
+    ProductInfo pInfo;
+    //get product info from hash or db
+    if (groupInfo.productsList.contains(code)) {
+      pInfo = groupInfo.productsList.take(code);
+      pInfo.qtyOnList += 1; //increment it
+      exists = true;
+    } else {
+      pInfo = myDb->getProductInfo(code);
+      pInfo.qtyOnList = 1;
+    }
+    
+    //check if the product to be added is not the same of the pack product
+    if (pInfo.code == ui->editCode->text().toULongLong()) continue; //HEY PURIST, WHEN I GOT SOME TIME I WILL CLEAN IT
+      
+      // Insert/Update GroupView
+      if (!exists) {
+        // Insert into the groupView
+        int rowCount = ui->groupView->rowCount();
+        ui->groupView->insertRow(rowCount);
+        ui->groupView->setItem(rowCount, 0, new QTableWidgetItem(QString::number(1)));
+        ui->groupView->setItem(rowCount, 1, new QTableWidgetItem(pInfo.desc));
+      } else {
+        //simply update the groupView with the new qty
+        for (int ri=0; ri<ui->groupView->rowCount(); ++ri)
+        {
+          QTableWidgetItem * item = ui->groupView->item(ri, 1);
+          QString name = item->data(Qt::DisplayRole).toString();
+          if (name == pInfo.desc) {
+            //update
+            QTableWidgetItem *itemQ = ui->groupView->item(ri, 0);//item qty
+            itemQ->setData(Qt::EditRole, QVariant(pInfo.qtyOnList));
+            continue; //HEY PURIST, WHEN I GOT SOME TIME I WILL CLEAN IT
+          }
+        }
+      }
+      // update info of the group
+      groupInfo.count = groupInfo.count+1;
+      groupInfo.cost  += pInfo.cost;
+      groupInfo.price += pInfo.price;
+      groupInfo.taxMoney += pInfo.totaltax;
+      //NOTE:group price is not affected by any product discount, it takes normal price.
+      bool yes = false;
+      if (pInfo.stockqty > 0 )
+        yes = true;
+      groupInfo.isAvailable = (groupInfo.isAvailable && yes );
+      // Insert product to the group hash
+      groupInfo.productsList.insert(code, pInfo);
+  }
+  ui->groupView->resizeRowsToContents();
+  ui->groupView->resizeColumnsToContents();
+  ui->groupView->clearSelection();
+  ui->sourcePView->clearSelection();
+  
+  //update cost and price on the form
+  ui->editCost->setText(QString::number(groupInfo.cost));
+  ui->editFinalPrice->setText(QString::number(groupInfo.price));
+  ui->editExtraTaxes->setText("0.0"); //extra taxes would be cero if its a group
+  
+  //calculate compound tax for the group.
+  groupInfo.tax = 0;
+  foreach(ProductInfo info, groupInfo.productsList) {
+    groupInfo.tax += (info.totaltax*info.qtyOnList/groupInfo.price)*100; // totalTaxMoney = price*(taxPercentage/100)
+    qDebug()<<" <Adding products> qtyOnList:"<<info.qtyOnList<<" tax money for product: "<<info.totaltax<<" group price:"<<groupInfo.price<<" taxMoney for group:"<<groupInfo.taxMoney<<" tax % for group:"<< groupInfo.tax;
+  }
+  ui->editTax->setText(QString::number(groupInfo.tax));
+  
+  //qDebug()<<"There are "<<groupInfo.count<<" items in group. The cost is:"<<groupInfo.cost<<", The price is:"<<groupInfo.price<<" And is available="<<groupInfo.isAvailable;
+  
+  delete myDb;
+}
+
+
+void ProductEditor::removeItem()
+{
+  if (ui->groupView->currentRow() != -1 ){
+    //get selected item from group view
+    int row = ui->groupView->currentRow();
+    QTableWidgetItem *item = ui->groupView->item(row, 1);
+    QString name = item->data(Qt::DisplayRole).toString();
+    Azahar *myDb = new Azahar;
+    myDb->setDatabase(db);
+    //get code from db
+    qulonglong code = myDb->getProductCode(name);
+    ProductInfo pInfo = groupInfo.productsList.take(code); //insert it later...
+    double qty = pInfo.qtyOnList; //from hash | must be the same on groupView
+    if (qty>1) {
+      qty--;
+      item = ui->groupView->item(row, 0);
+      item->setData(Qt::EditRole, QVariant(qty));
+      pInfo.qtyOnList = qty;
+      groupInfo.productsList.insert(code, pInfo);
+    } else {
+      //delete it from groupView, already removed from hash
+      ui->groupView->removeRow(row);
+    }
+    // update info of the group
+    groupInfo.count -= 1;
+    groupInfo.cost  -= pInfo.cost;
+    groupInfo.price -= pInfo.price;
+    groupInfo.taxMoney -= pInfo.totaltax;
+    bool yes = false;
+    if (pInfo.stockqty > 0 ) //TODO:Falta checar la cantidad que se desea en elgrupo de cada producto
+      yes = true;
+    groupInfo.isAvailable = (groupInfo.isAvailable && yes );
+    delete myDb;
+  } //there is something selected
+  
+  //update cost and price on the form
+  ui->editCost->setText(QString::number(groupInfo.cost));
+  ui->editFinalPrice->setText(QString::number(groupInfo.price));
+  ui->editExtraTaxes->setText("0.0");
+  
+  //calculate compound tax for the group.
+  groupInfo.tax = 0;
+  foreach(ProductInfo info, groupInfo.productsList) {
+    groupInfo.tax += (info.totaltax/groupInfo.price)*100; // totalTaxMoney = price*(taxPercentage/100)
+    qDebug()<<" <Removing products>  tax money for product: "<<info.totaltax<<" group price:"<<groupInfo.price<<" taxMoney for group:"<<groupInfo.taxMoney<<" tax % for group:"<< groupInfo.tax;
+  }
+  ui->editTax->setText(QString::number(groupInfo.tax));
+  
+  qDebug()<<"There are "<<groupInfo.count<<" items in group. The cost is:"<<groupInfo.cost<<", The price is:"<<groupInfo.price<<" And is available="<<groupInfo.isAvailable;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for (int i=0; i<list.count(); ++i) {
+  QStringList tmp = list.at(i).split("/");
+  if (tmp.count() == 2) { //ok 2 fields
+    qulonglong  code  = tmp.at(0).toULongLong();
+    double      qty   = tmp.at(1).toDouble();
+    pInfo = myDb->getProductInfo(code, true); //the 2nd parameter is to get the taxes for the group (not considering discounts)
+    qDebug()<<" ************ DESPUES DE getProductInfo(... true), price:"<<pInfo.price;
+    pInfo.qtyOnList = qty;
+    
+    //Insert it to the hash
+    groupInfo.productsList.insert(code, pInfo);
+    //update groupInfo
+    groupInfo.count += qty;
+    groupInfo.cost  += pInfo.cost*qty;
+    groupInfo.price += pInfo.price*qty; //(pInfo.price -pInfo.price*(xInfo.groupPriceDrop/100)) * qty;
+    groupInfo.taxMoney += pInfo.totaltax*qty;
+    bool yes = false;
+    if (pInfo.stockqty >= qty ) yes = true;
+    groupInfo.isAvailable = (groupInfo.isAvailable && yes );
+    //insert it to the groupView
+    int rowCount = ui->groupView->rowCount();
+    ui->groupView->insertRow(rowCount);
+    ui->groupView->setItem(rowCount, 0, new QTableWidgetItem(QString::number(qty)));
+    ui->groupView->setItem(rowCount, 1, new QTableWidgetItem(pInfo.desc));
+  }
+}

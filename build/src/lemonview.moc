@@ -1,0 +1,521 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'lemonview.h'
+**
+** Created: Mon Apr 20 14:00:02 2015
+**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include "../../src/lemonview.h"
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'lemonview.h' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.2. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_lemonView[] = {
+
+ // content:
+       6,       // revision
+       0,       // classname
+       0,    0, // classinfo
+     113,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+      20,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      10,   41,   46,   46, 0x05,
+      47,   41,   46,   46, 0x05,
+      76,   46,   46,   46, 0x05,
+      98,   46,   46,   46, 0x05,
+     125,   46,   46,   46, 0x05,
+     148,   46,   46,   46, 0x05,
+     176,   46,   46,   46, 0x05,
+     197,   46,   46,   46, 0x05,
+     216,   46,   46,   46, 0x05,
+     236,  259,   46,   46, 0x05,
+     264,   46,   46,   46, 0x05,
+     294,   46,   46,   46, 0x05,
+     319,   46,   46,   46, 0x05,
+     340,   46,   46,   46, 0x05,
+     361,   46,   46,   46, 0x05,
+     378,   46,   46,   46, 0x05,
+     396,   46,   46,   46, 0x05,
+     416,   46,   46,   46, 0x05,
+     437,   46,   46,   46, 0x05,
+     472,   46,   46,   46, 0x05,
+
+ // slots: signature, parameters, type, tag, flags
+     508,   46,   46,   46, 0x08,
+     521,   46,   46,   46, 0x08,
+     543,   46,   46,   46, 0x08,
+     566,   46,   46,   46, 0x08,
+     585,  623,  630,   46, 0x08,
+     635,  259,   46,   46, 0x08,
+     655,  714,  773,   46, 0x08,
+     777,   46,   46,   46, 0x08,
+     798,  835,   46,   46, 0x08,
+     840,  835,   46,   46, 0x08,
+     883,   46,   46,   46, 0x08,
+     903,  835,   46,   46, 0x08,
+     938,  976,   46,   46, 0x08,
+     981,   46,   46,   46, 0x08,
+    1008,   46,   46,   46, 0x08,
+    1035,   46,   46,   46, 0x08,
+    1065,   46,   46,   46, 0x08,
+    1092, 1122,   46,   46, 0x08,
+    1140,   46,   46,   46, 0x08,
+    1159,   46,   46,   46, 0x08,
+    1189, 1213,   46,   46, 0x08,
+    1223,   46,   46,   46, 0x08,
+    1247, 1274,   46,   46, 0x08,
+    1278,   46,   46,   46, 0x28,
+    1301,   46,   46,   46, 0x08,
+    1320, 1344,   46,   46, 0x08,
+    1351, 1377,   46,   46, 0x08,
+    1383, 1377,   46,   46, 0x08,
+    1408,   46,   46,   46, 0x08,
+    1424,   46,   46,   46, 0x08,
+    1435,   46,   46,   46, 0x08,
+    1448, 1468,  773,   46, 0x08,
+    1470,   46,   46,   46, 0x08,
+    1483,   46,   46,   46, 0x08,
+    1499,   46,   46,   46, 0x08,
+    1515,   46,   46,   46, 0x08,
+    1529,   46,   46,   46, 0x08,
+    1545,   46,   46,   46, 0x08,
+    1567,   46,   46,   46, 0x08,
+    1585,   46,   46,   46, 0x08,
+    1615,   46,   46,   46, 0x08,
+    1623,   46,   46,   46, 0x08,
+    1633,   46,   46,   46, 0x08,
+    1647,   46,   46,   46, 0x08,
+    1662,   46,   46,   46, 0x08,
+    1677,   46,   46,   46, 0x08,
+    1699,   46,   46,   46, 0x08,
+    1724, 1757,   46,   46, 0x08,
+    1763, 1757,   46,   46, 0x08,
+    1792,   46,   46,   46, 0x08,
+    1815,   46,   46,   46, 0x08,
+    1834,   46,   46,   46, 0x08,
+    1852, 1875,   46,   46, 0x08,
+    1880,   46,   46,   46, 0x08,
+    1899,   46,   46,   46, 0x08,
+    1918,   46,   46,   46, 0x08,
+    1943,   46,   46,   46, 0x08,
+    1955,   46,   46,   46, 0x08,
+    1972,   46,   46,   46, 0x08,
+    1992,   46,   46,   46, 0x08,
+    2010,   46,   46,   46, 0x08,
+    2037, 1122,   46,   46, 0x08,
+    2076,   46,   46,   46, 0x08,
+    2093,   46,   46,   46, 0x08,
+    2112,   46,   46,   46, 0x08,
+    2129, 1757,   46,   46, 0x08,
+    2162,   46,   46,   46, 0x08,
+    2172,   46,   46,   46, 0x08,
+    2181,   46,   46,   46, 0x08,
+    2197,   46,   46,   46, 0x08,
+    2213,   46,   46,   46, 0x08,
+    2231,   46,   46,   46, 0x08,
+    2249,   46,   46,   46, 0x08,
+    2272,   46,   46,   46, 0x08,
+    2285,   46,   46,   46, 0x08,
+    2300,   46,   46,   46, 0x08,
+    2314,   46,   46,   46, 0x08,
+    2327,   46,   46,   46, 0x08,
+    2344,   46,   46,   46, 0x08,
+    2364, 2384,   46,   46, 0x08,
+    2391,   46,   46,   46, 0x08,
+    2407,   46,   46,   46, 0x08,
+    2428, 2459, 2464,   46, 0x08,
+    2471, 2507,   46,   46, 0x08,
+    2526,   46,   46,   46, 0x08,
+    2545,   46,   46,   46, 0x08,
+    2561,   46,   46,   46, 0x08,
+    2585,   46,   46,   46, 0x08,
+    2608,   46,   46,   46, 0x08,
+    2635,   46,   46,   46, 0x08,
+    2650,   46,   46,   46, 0x08,
+    2671,   46,   46,   46, 0x08,
+    2691,   46,   46,   46, 0x08,
+
+       0        // eod
+};
+
+static const char qt_meta_stringdata_lemonView[] = {
+    "lemonView\0signalChangeStatusbar(QString)\0"
+    "text\0\0signalChangeCaption(QString)\0"
+    "signalAdminLoggedOn()\0signalSupervisorLoggedOn()\0"
+    "signalAdminLoggedOff()\0"
+    "signalSupervisorLoggedOff()\0"
+    "signalNoLoggedUser()\0signalLoggedUser()\0"
+    "signalUpdateClock()\0signalQueryDb(QString)\0"
+    "code\0signalUpdateTransactionInfo()\0"
+    "signalStartedOperation()\0signalShowProdGrid()\0"
+    "signalShowDbConfig()\0signalEnableUI()\0"
+    "signalDisableUI()\0signalEnableLogin()\0"
+    "signalDisableLogin()\0"
+    "signalEnableStartOperationAction()\0"
+    "signalDisableStartOperationAction()\0"
+    "setUpTable()\0showEnterCodeWidget()\0"
+    "showSearchItemWidget()\0doSearchItemDesc()\0"
+    "incrementTableItemQty(QString,double)\0"
+    "code,q\0bool\0insertItem(QString)\0"
+    "doInsertItem(QString,QString,double,double,double,QString)\0"
+    "itemCode,itemDesc,itemQty,itemPrice,itemDiscount,itemUnits\0"
+    "int\0deleteSelectedItem()\0"
+    "itemDoubleClicked(QTableWidgetItem*)\0"
+    "item\0itemSearchDoubleClicked(QTableWidgetItem*)\0"
+    "refreshTotalLabel()\0"
+    "displayItemInfo(QTableWidgetItem*)\0"
+    "createNewTransaction(TransactionType)\0"
+    "type\0finishCurrentTransaction()\0"
+    "cancelCurrentTransaction()\0"
+    "preCancelCurrentTransaction()\0"
+    "deleteCurrentTransaction()\0"
+    "cancelTransaction(qulonglong)\0"
+    "transactionNumber\0askForIdToCancel()\0"
+    "askForTicketToReturnProduct()\0"
+    "startOperation(QString)\0adminUser\0"
+    "_slotDoStartOperation()\0"
+    "slotDoStartOperation(bool)\0ask\0"
+    "slotDoStartOperation()\0clearUsedWidgets()\0"
+    "printTicket(TicketInfo)\0ticket\0"
+    "printBalance(QStringList)\0lines\0"
+    "showBalance(QStringList)\0doCorteDeCaja()\0"
+    "endOfDay()\0startAgain()\0getItemRow(QString)\0"
+    "c\0buttonDone()\0checksChanged()\0"
+    "focusPayInput()\0plusPressed()\0"
+    "setupGridView()\0doEmitSignalQueryDb()\0"
+    "settingsChanged()\0settingsChangedOnInitConfig()\0"
+    "login()\0setupDB()\0connectToDb()\0"
+    "setupClients()\0timerTimeout()\0"
+    "clearLabelSearchMsg()\0goSelectCardAuthNumber()\0"
+    "listViewOnMouseMove(QModelIndex)\0index\0"
+    "listViewOnClick(QModelIndex)\0"
+    "comboClientsOnChange()\0updateClientInfo()\0"
+    "updateModelView()\0showProductsGrid(bool)\0"
+    "show\0showPriceChecker()\0hideProductsGrid()\0"
+    "populateCategoriesHash()\0setFilter()\0"
+    "showChangeDate()\0showReprintTicket()\0"
+    "setupTicketView()\0setupHistoryTicketsModel()\0"
+    "printTicketFromTransaction(qulonglong)\0"
+    "printSelTicket()\0setHistoryFilter()\0"
+    "btnTicketsDone()\0itemHIDoubleClicked(QModelIndex)\0"
+    "cashOut()\0cashIn()\0cashAvailable()\0"
+    "freezeWidgets()\0unfreezeWidgets()\0"
+    "addSpecialOrder()\0specialOrderComplete()\0"
+    "lockScreen()\0unlockScreen()\0suspendSale()\0"
+    "resumeSale()\0changeSOStatus()\0"
+    "updateTransaction()\0updateBalance(bool)\0"
+    "finish\0insertBalance()\0occasionalDiscount()\0"
+    "getTotalQtyOnList(ProductInfo)\0info\0"
+    "double\0log(qulonglong,QDate,QTime,QString)\0"
+    "uid,date,time,text\0syncSettingsOnDb()\0"
+    "getCurrencies()\0comboCurrencyOnChange()\0"
+    "doCurrencyConversion()\0"
+    "acceptCurrencyConversion()\0reserveItems()\0"
+    "suspendReservation()\0resumeReservation()\0"
+    "postponeReservation()\0"
+};
+
+void lemonView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        lemonView *_t = static_cast<lemonView *>(_o);
+        switch (_id) {
+        case 0: _t->signalChangeStatusbar((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 1: _t->signalChangeCaption((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 2: _t->signalAdminLoggedOn(); break;
+        case 3: _t->signalSupervisorLoggedOn(); break;
+        case 4: _t->signalAdminLoggedOff(); break;
+        case 5: _t->signalSupervisorLoggedOff(); break;
+        case 6: _t->signalNoLoggedUser(); break;
+        case 7: _t->signalLoggedUser(); break;
+        case 8: _t->signalUpdateClock(); break;
+        case 9: _t->signalQueryDb((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: _t->signalUpdateTransactionInfo(); break;
+        case 11: _t->signalStartedOperation(); break;
+        case 12: _t->signalShowProdGrid(); break;
+        case 13: _t->signalShowDbConfig(); break;
+        case 14: _t->signalEnableUI(); break;
+        case 15: _t->signalDisableUI(); break;
+        case 16: _t->signalEnableLogin(); break;
+        case 17: _t->signalDisableLogin(); break;
+        case 18: _t->signalEnableStartOperationAction(); break;
+        case 19: _t->signalDisableStartOperationAction(); break;
+        case 20: _t->setUpTable(); break;
+        case 21: _t->showEnterCodeWidget(); break;
+        case 22: _t->showSearchItemWidget(); break;
+        case 23: _t->doSearchItemDesc(); break;
+        case 24: { bool _r = _t->incrementTableItemQty((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< double(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 25: _t->insertItem((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 26: { int _r = _t->doInsertItem((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< double(*)>(_a[3])),(*reinterpret_cast< double(*)>(_a[4])),(*reinterpret_cast< double(*)>(_a[5])),(*reinterpret_cast< QString(*)>(_a[6])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 27: _t->deleteSelectedItem(); break;
+        case 28: _t->itemDoubleClicked((*reinterpret_cast< QTableWidgetItem*(*)>(_a[1]))); break;
+        case 29: _t->itemSearchDoubleClicked((*reinterpret_cast< QTableWidgetItem*(*)>(_a[1]))); break;
+        case 30: _t->refreshTotalLabel(); break;
+        case 31: _t->displayItemInfo((*reinterpret_cast< QTableWidgetItem*(*)>(_a[1]))); break;
+        case 32: _t->createNewTransaction((*reinterpret_cast< TransactionType(*)>(_a[1]))); break;
+        case 33: _t->finishCurrentTransaction(); break;
+        case 34: _t->cancelCurrentTransaction(); break;
+        case 35: _t->preCancelCurrentTransaction(); break;
+        case 36: _t->deleteCurrentTransaction(); break;
+        case 37: _t->cancelTransaction((*reinterpret_cast< qulonglong(*)>(_a[1]))); break;
+        case 38: _t->askForIdToCancel(); break;
+        case 39: _t->askForTicketToReturnProduct(); break;
+        case 40: _t->startOperation((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 41: _t->_slotDoStartOperation(); break;
+        case 42: _t->slotDoStartOperation((*reinterpret_cast< const bool(*)>(_a[1]))); break;
+        case 43: _t->slotDoStartOperation(); break;
+        case 44: _t->clearUsedWidgets(); break;
+        case 45: _t->printTicket((*reinterpret_cast< TicketInfo(*)>(_a[1]))); break;
+        case 46: _t->printBalance((*reinterpret_cast< QStringList(*)>(_a[1]))); break;
+        case 47: _t->showBalance((*reinterpret_cast< QStringList(*)>(_a[1]))); break;
+        case 48: _t->doCorteDeCaja(); break;
+        case 49: _t->endOfDay(); break;
+        case 50: _t->startAgain(); break;
+        case 51: { int _r = _t->getItemRow((*reinterpret_cast< QString(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 52: _t->buttonDone(); break;
+        case 53: _t->checksChanged(); break;
+        case 54: _t->focusPayInput(); break;
+        case 55: _t->plusPressed(); break;
+        case 56: _t->setupGridView(); break;
+        case 57: _t->doEmitSignalQueryDb(); break;
+        case 58: _t->settingsChanged(); break;
+        case 59: _t->settingsChangedOnInitConfig(); break;
+        case 60: _t->login(); break;
+        case 61: _t->setupDB(); break;
+        case 62: _t->connectToDb(); break;
+        case 63: _t->setupClients(); break;
+        case 64: _t->timerTimeout(); break;
+        case 65: _t->clearLabelSearchMsg(); break;
+        case 66: _t->goSelectCardAuthNumber(); break;
+        case 67: _t->listViewOnMouseMove((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 68: _t->listViewOnClick((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 69: _t->comboClientsOnChange(); break;
+        case 70: _t->updateClientInfo(); break;
+        case 71: _t->updateModelView(); break;
+        case 72: _t->showProductsGrid((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 73: _t->showPriceChecker(); break;
+        case 74: _t->hideProductsGrid(); break;
+        case 75: _t->populateCategoriesHash(); break;
+        case 76: _t->setFilter(); break;
+        case 77: _t->showChangeDate(); break;
+        case 78: _t->showReprintTicket(); break;
+        case 79: _t->setupTicketView(); break;
+        case 80: _t->setupHistoryTicketsModel(); break;
+        case 81: _t->printTicketFromTransaction((*reinterpret_cast< qulonglong(*)>(_a[1]))); break;
+        case 82: _t->printSelTicket(); break;
+        case 83: _t->setHistoryFilter(); break;
+        case 84: _t->btnTicketsDone(); break;
+        case 85: _t->itemHIDoubleClicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 86: _t->cashOut(); break;
+        case 87: _t->cashIn(); break;
+        case 88: _t->cashAvailable(); break;
+        case 89: _t->freezeWidgets(); break;
+        case 90: _t->unfreezeWidgets(); break;
+        case 91: _t->addSpecialOrder(); break;
+        case 92: _t->specialOrderComplete(); break;
+        case 93: _t->lockScreen(); break;
+        case 94: _t->unlockScreen(); break;
+        case 95: _t->suspendSale(); break;
+        case 96: _t->resumeSale(); break;
+        case 97: _t->changeSOStatus(); break;
+        case 98: _t->updateTransaction(); break;
+        case 99: _t->updateBalance((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 100: _t->insertBalance(); break;
+        case 101: _t->occasionalDiscount(); break;
+        case 102: { double _r = _t->getTotalQtyOnList((*reinterpret_cast< const ProductInfo(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< double*>(_a[0]) = _r; }  break;
+        case 103: _t->log((*reinterpret_cast< const qulonglong(*)>(_a[1])),(*reinterpret_cast< const QDate(*)>(_a[2])),(*reinterpret_cast< const QTime(*)>(_a[3])),(*reinterpret_cast< const QString(*)>(_a[4]))); break;
+        case 104: _t->syncSettingsOnDb(); break;
+        case 105: _t->getCurrencies(); break;
+        case 106: _t->comboCurrencyOnChange(); break;
+        case 107: _t->doCurrencyConversion(); break;
+        case 108: _t->acceptCurrencyConversion(); break;
+        case 109: _t->reserveItems(); break;
+        case 110: _t->suspendReservation(); break;
+        case 111: _t->resumeReservation(); break;
+        case 112: _t->postponeReservation(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData lemonView::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
+const QMetaObject lemonView::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_lemonView,
+      qt_meta_data_lemonView, &staticMetaObjectExtraData }
+};
+
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &lemonView::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
+const QMetaObject *lemonView::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+}
+
+void *lemonView::qt_metacast(const char *_clname)
+{
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_lemonView))
+        return static_cast<void*>(const_cast< lemonView*>(this));
+    if (!strcmp(_clname, "Ui::mainview"))
+        return static_cast< Ui::mainview*>(const_cast< lemonView*>(this));
+    return QWidget::qt_metacast(_clname);
+}
+
+int lemonView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 113)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 113;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void lemonView::signalChangeStatusbar(const QString & _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void lemonView::signalChangeCaption(const QString & _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void lemonView::signalAdminLoggedOn()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, 0);
+}
+
+// SIGNAL 3
+void lemonView::signalSupervisorLoggedOn()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, 0);
+}
+
+// SIGNAL 4
+void lemonView::signalAdminLoggedOff()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, 0);
+}
+
+// SIGNAL 5
+void lemonView::signalSupervisorLoggedOff()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, 0);
+}
+
+// SIGNAL 6
+void lemonView::signalNoLoggedUser()
+{
+    QMetaObject::activate(this, &staticMetaObject, 6, 0);
+}
+
+// SIGNAL 7
+void lemonView::signalLoggedUser()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, 0);
+}
+
+// SIGNAL 8
+void lemonView::signalUpdateClock()
+{
+    QMetaObject::activate(this, &staticMetaObject, 8, 0);
+}
+
+// SIGNAL 9
+void lemonView::signalQueryDb(QString _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 9, _a);
+}
+
+// SIGNAL 10
+void lemonView::signalUpdateTransactionInfo()
+{
+    QMetaObject::activate(this, &staticMetaObject, 10, 0);
+}
+
+// SIGNAL 11
+void lemonView::signalStartedOperation()
+{
+    QMetaObject::activate(this, &staticMetaObject, 11, 0);
+}
+
+// SIGNAL 12
+void lemonView::signalShowProdGrid()
+{
+    QMetaObject::activate(this, &staticMetaObject, 12, 0);
+}
+
+// SIGNAL 13
+void lemonView::signalShowDbConfig()
+{
+    QMetaObject::activate(this, &staticMetaObject, 13, 0);
+}
+
+// SIGNAL 14
+void lemonView::signalEnableUI()
+{
+    QMetaObject::activate(this, &staticMetaObject, 14, 0);
+}
+
+// SIGNAL 15
+void lemonView::signalDisableUI()
+{
+    QMetaObject::activate(this, &staticMetaObject, 15, 0);
+}
+
+// SIGNAL 16
+void lemonView::signalEnableLogin()
+{
+    QMetaObject::activate(this, &staticMetaObject, 16, 0);
+}
+
+// SIGNAL 17
+void lemonView::signalDisableLogin()
+{
+    QMetaObject::activate(this, &staticMetaObject, 17, 0);
+}
+
+// SIGNAL 18
+void lemonView::signalEnableStartOperationAction()
+{
+    QMetaObject::activate(this, &staticMetaObject, 18, 0);
+}
+
+// SIGNAL 19
+void lemonView::signalDisableStartOperationAction()
+{
+    QMetaObject::activate(this, &staticMetaObject, 19, 0);
+}
+QT_END_MOC_NAMESPACE
