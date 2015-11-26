@@ -1660,7 +1660,7 @@ font: 75 9pt &quot;Lucida Grande&quot;;</string>
   <customwidget>
    <class>MibitLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>../../mibitWidgets/mibitlineedit.h</header>
+   <header>../mibitWidgets/mibitlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources>

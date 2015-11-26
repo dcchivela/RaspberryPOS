@@ -695,7 +695,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>MibitLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>../../mibitWidgets/mibitlineedit.h</header>
+   <header>../mibitWidgets/mibitlineedit.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

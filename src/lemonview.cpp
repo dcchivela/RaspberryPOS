@@ -33,9 +33,9 @@
 #include "sostatus.h"
 #include "resume.h"
 #include "reservations.h"
-#include "../../mibitWidgets/mibittip.h"
-#include "../../mibitWidgets/mibitpassworddlg.h"
-#include "../../mibitWidgets/mibitfloatpanel.h"
+#include "../mibitWidgets/mibittip.h"
+#include "../mibitWidgets/mibitpassworddlg.h"
+#include "../mibitWidgets/mibitfloatpanel.h"
 
 
 //StarMicronics printers
