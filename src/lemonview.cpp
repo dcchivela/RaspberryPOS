@@ -2,6 +2,9 @@
  *   Copyright © 2007-2010 by Miguel Chavez Gamboa                         *
  *   miguel@lemonpos.org                                                   *
  *                                                                         *
+ *   Modified by Daniel A. Cervantes Cabrera                               *
+ *  dcchivela@gmail.com                                                    *
+ *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
@@ -71,6 +74,11 @@
 #include <kpassivepopup.h>
 #include <KNotification>
 
+#include <iostream>
+#include <QFile>
+
+
+using namespace std;
 
 /* Widgets zone                                                                                                         */
 /*======================================================================================================================*/
@@ -2187,7 +2195,47 @@ void lemonView::finishCurrentTransaction()
 
 void lemonView::printTicket(TicketInfo ticket)
 {
-  if (ticket.total == 0 && !Settings::printZeroTicket()) {
+
+
+    //std::cout << "number " << ticket.number << std::endl;
+    //std::cout << "total  " << ticket.total << std::endl;
+    /*
+     *
+     *
+     *  struct TicketInfo {
+  qulonglong number;
+  double total; //this is the total amount of THIS TICKET.
+  double change;
+  double paidwith;
+  int itemcount;
+  QString cardnum;
+  QString cardAuthNum;
+  bool paidWithCard;
+  double clientDisc;
+  double clientDiscMoney;
+  qulonglong buyPoints;
+  qulonglong clientPoints;
+  qulonglong clientid; // 14 Abril 08
+  QList<TicketLineInfo> lines;
+  QDateTime datetime;
+  bool hasSpecialOrders;
+  bool completingSpecialOrder;
+  double totalTax;
+  QDateTime deliveryDT;
+  double soTotal; //this is the total for the SO (nextpayment + prepayment)
+  QString subTotal;
+  QString terminal;
+  //for reservations:
+  bool isAReservation;
+  bool reservationStarted;
+  double reservationPayment;
+  double purchaseTotal;
+  qulonglong reservationId;
+};*/
+
+
+
+  if (ticket.total == 0 && !Settings::printZeroTicket()) {     
     freezeWidgets();
     KNotification *notify = new KNotification("information", this);
     notify->setText(i18n("The ticket was not printed because it is ZERO in the amount to pay. Just to save trees."));
@@ -2197,6 +2245,10 @@ void lemonView::printTicket(TicketInfo ticket)
     QTimer::singleShot(2000, this, SLOT(unfreezeWidgets()));
     return; ///DO NOT PRINT! We are saving trees.
   }
+
+
+
+
 
     //TRanslateable strings:
   QString salesperson    = i18n("Salesperson: %1", loggedUserName);
@@ -2254,6 +2306,7 @@ void lemonView::printTicket(TicketInfo ticket)
   //qDebug()<< "Strings:"<< hQty;qDebug()<< ", "<< hProduct<<", "<<hPrice<<", "<<hTotal;
   itemsForPrint.append(hQty +"  "+ hProduct +"  "+ hPrice+ "  "+ hTotal);
   itemsForPrint.append("------  --------------  -------  -------");
+
 
   QLocale localeForPrinting; // needed to convert double to a string better 
   for (int i = 0; i < ticket.lines.size(); ++i)
@@ -2368,7 +2421,22 @@ void lemonView::printTicket(TicketInfo ticket)
   //Printing...
   qDebug()<< itemsForPrint.join("\n");
 
-  tDisc = tDisc + ticket.clientDiscMoney;
+     QFile fOut;
+        fOut.setFileName("./RaspberryPOS/script/spool");
+        if (fOut.open(QFile::WriteOnly | QFile::Text)) {
+            QTextStream s(&fOut);
+            for (int i = 0; i < itemsForPrint.size(); ++i)
+              s << itemsForPrint.at(i) << '\n';
+            fOut.close();
+        } else {
+            std::cerr << "error opening output file\n";
+            //return EXIT_FAILURE;
+          }
+
+
+
+
+        tDisc = tDisc + ticket.clientDiscMoney;
 
   ///Real printing... [sendind data to print-methods]
   if (Settings::printTicket()) {
